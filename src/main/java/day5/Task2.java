@@ -5,7 +5,6 @@ public class Task2 {
         Motorbike motorbike = new Motorbike("VESPA", 2020, "black");
 
         System.out.println("Motorbike: " + motorbike.getModel() + ", " + motorbike.getYear() + ", " + motorbike.getColor() + ".");
-
     }
 }
 

@@ -9,7 +9,6 @@ public class Task1 {
         car.setYear(2020);
 
         System.out.println("Car: " + car.getModel() + ", " + car.getYear() + ", " + car.getColor() + ".");
-
     }
 }
 
