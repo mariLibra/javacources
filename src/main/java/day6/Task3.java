@@ -7,6 +7,5 @@ public class Task3 {
         Student student = new Student("Pol");
 
         System.out.println(teacher.evaluate(student));
-
     }
 }

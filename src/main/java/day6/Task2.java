@@ -11,5 +11,14 @@ public class Task2 {
         airplane.fillUp(15);
         airplane.info();
 
+        Airplane airplane = new Airplane("BRM Aero", 2020, 7, 335);
+
+        airplane.setYear(2015);
+        airplane.setLength(6);
+        airplane.fillUp(10);
+        airplane.fillUp(15);
+
+        airplane.info();
+
     }
 }
