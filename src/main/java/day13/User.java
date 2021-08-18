@@ -1,7 +1,5 @@
 package day13;
 
-import com.sun.javafx.logging.jfr.JFRInputEvent;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +40,7 @@ public class User {
         return (this.isSubscribed(user) && user.isSubscribed(this));
     }
 
+    //сообщения могут быть отправлены только друзьям
     public void sendMessage(User user, String text) {
         if (this.isFriend(user))
             MessageDatabase.addNewMessage(this, user, text);

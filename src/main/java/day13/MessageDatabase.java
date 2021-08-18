@@ -18,7 +18,8 @@ public class MessageDatabase {
     public static void showDialog(User u1, User u2) {
         if (u1.isFriend(u2)) {
             for (Message m : messages) {
-                if ((m.getSender().equals(u1) && m.getReceiver().equals(u2) || (m.getSender().equals(u2) && m.getReceiver().equals(u1))))
+                if ((m.getSender().equals(u1) && m.getReceiver().equals(u2)
+                        || (m.getSender().equals(u2) && m.getReceiver().equals(u1))))
                     System.out.println(m);
             }
         }

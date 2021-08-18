@@ -29,6 +29,5 @@ public class Task1 {
         user3.sendMessage(user1, "падает на нас");
 
         MessageDatabase.showDialog(user1, user3);
-
     }
 }
