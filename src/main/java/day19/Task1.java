@@ -29,15 +29,16 @@ public class Task1 {
                     dushi.put(str, value);
                 }
             }
-
-            System.out.println(dushi);
             sc.close();
+
+            //общий список слов и частота их использования
+            System.out.println(dushi);
 
             //проверяю, сколько раз в тексте встречается фамилия "Чичиков"
             System.out.println("Чичиков = " + dushi.get("чичиков"));
 
             //100 самых часто встречающихся слов в тексте
-            getPopular(dushi, 100);
+            System.out.println(getPopular(dushi, 100));
 
 
         } catch (FileNotFoundException e) {
@@ -45,37 +46,30 @@ public class Task1 {
         }
     }
 
-    public static void getPopular(Map<String, Integer> quelle, int number) {
+    public static Map<String, Integer> getPopular(Map<String, Integer> quelle, int number) {
 
+        //временный список, чтобы не изменять исходный список
         Map<String, Integer> tmp = new HashMap<>(quelle);
 
+        //конечный список с популярными словами
         Map<String, Integer> popular = new HashMap<>();
 
-        if (number == 0) {
-            return;
-        }
+        for (int i = 0; i < number; i++) {
+            int value = 1;
+            String key = "";
 
-        int value = 1;
-        String key = "";
-
-        for (Map.Entry<String, Integer> entry : tmp.entrySet()) {
-            if (entry.getValue() > value) {
-                value = entry.getValue();
-                key = entry.getKey();
+            for (Map.Entry<String, Integer> entry : tmp.entrySet()) {
+                if (entry.getValue() > value) {
+                    value = entry.getValue();
+                    key = entry.getKey();
+                }
             }
+            popular.put(key, value);
+
+            //удаляю значение с ключом key,
+            // чтобы найти следующее максимальное значение value
+            tmp.remove(key);
         }
-
-        popular.put(key, value);
-
-        //перезаписываю значение с ключом key, чтобы найти следующее максимальное значение value
-        tmp.put(key, 0);
-
-        //повторяем метод на измененном списке
-        getPopular(tmp, number - 1);
-
-        System.out.print(popular);
-
-        //или если нужно вывести только слова
-        // System.out.println(popular.keySet());
+        return popular;
     }
 }
